@@ -12,7 +12,7 @@ import { usePage } from './usePage';
 
 export default function Home() {
 
-  const { search, setSearch, listDictionary, listSearchedWords, isOpenListWord, font, selectFont, error, onSubmit, playAudio, theme, toggleListWords, toggleTheme } = usePage();
+  const { search, setSearch, listDictionary, listSearchedWords, isOpenListWord, font, selectFont, error, onSubmit, playAudio, theme, toggleListWords, toggleTheme, audioRef } = usePage();
 
   return (
     <div className={`${font} ${theme === 'dark' ? 'dark' : 'light'}`}>
@@ -124,7 +124,7 @@ export default function Home() {
 
         </main>
       </div>
-        <audio id="myAudio" />
+        <audio id="myAudio" ref={audioRef} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Poppins, Roboto_Mono, Merriweather } from "next/font/google";
 
 import { searchService, Dictionary } from './services/dictionary.service';
@@ -27,7 +27,7 @@ export type SearchedWord = {
 }
 
 export const usePage = () => {
-
+   let audioRef = useRef<HTMLAudioElement>(null);
    const [font, setFont] = useState(merriweather.className)
    const [search, setSearch] = useState("");
    const [theme, setTheme] = useState('dark')
@@ -104,7 +104,7 @@ export const usePage = () => {
 
    const playAudio = async (audioUrl: string) => {
       
-      let audio = document.getElementById('myAudio') as HTMLAudioElement;
+      let audio = audioRef.current;
       
       if(!audio) return;
       
@@ -129,6 +129,7 @@ export const usePage = () => {
       toggleTheme,
       toggleListWords,
       theme,
-      onSubmit
+      onSubmit,
+      audioRef
    }
 }
