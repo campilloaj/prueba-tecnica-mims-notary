@@ -34,3 +34,7 @@ body {
   background-color: #ffffff; /* Fondo claro */
   color: #000000; /* Texto oscuro */
 }
+
+.light::placeholder{
+  color: #000000; /* Texto oscuro */
+}

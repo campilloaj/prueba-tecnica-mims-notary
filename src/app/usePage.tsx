@@ -1,24 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { Poppins, Roboto_Mono, Merriweather } from "next/font/google";
 
 import { searchService, Dictionary } from './services/dictionary.service';
-
-const robotoMono = Roboto_Mono({
-   subsets: ['latin'],
-   weight: '400',
-});
-
-//sans serif
-const poppins = Poppins({
-   subsets: ['latin'],
-   weight: '400',
-});
-
-//serif
-const merriweather = Merriweather({
-   subsets: ['latin'],
-   weight: '400',
-});
 
 export type SearchedWord = {
    date: string,
@@ -28,9 +10,7 @@ export type SearchedWord = {
 
 export const usePage = () => {
    let audioRef = useRef<HTMLAudioElement>(null);
-   const [font, setFont] = useState(merriweather.className)
    const [search, setSearch] = useState("");
-   const [theme, setTheme] = useState('dark')
    const [error, setError] = useState('');
    const [isOpenListWord, setIsOpenListWord] = useState(false);
    const [listDictionary, setListDictionary] = useState<Dictionary[]>([]);
@@ -40,7 +20,7 @@ export const usePage = () => {
 
       const result = (localStorage.getItem("words") || "[]") as string;
       const parseData = JSON.parse(result) as SearchedWord[];
-      setListSearchedWords(parseData)
+      setListSearchedWords(parseData);
 
    }, [])
 
@@ -79,28 +59,11 @@ export const usePage = () => {
       setListSearchedWords(cloneArray);
 
    }
-
-   const selectFont = (option: string) => {
-
-      if (option === "sans_serif") {
-         setFont(poppins.className)
-      } else if (option === "monospace") {
-         setFont(robotoMono.className)
-      } else {
-         setFont(merriweather.className)
-      }
-
-   }
-
-
+  
    const toggleListWords = () => {
-      setIsOpenListWord(!isOpenListWord)
+      setIsOpenListWord(!isOpenListWord);
    }
 
-
-   const toggleTheme = (option: string) => {
-      setTheme(option)
-   }
 
    const playAudio = async (audioUrl: string) => {
       
@@ -108,11 +71,11 @@ export const usePage = () => {
       
       if(!audio) return;
       
-      audio.setAttribute('src', audioUrl)
+      audio.setAttribute('src', audioUrl);
 
       audio.load();
       
-      await audio.play() // Reproduce el audio
+      await audio.play();
 
    };
 
@@ -122,13 +85,9 @@ export const usePage = () => {
       listDictionary,
       listSearchedWords,
       isOpenListWord,
-      font,
-      selectFont,
       error,
       playAudio,
-      toggleTheme,
       toggleListWords,
-      theme,
       onSubmit,
       audioRef
    }

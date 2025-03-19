@@ -1,5 +1,4 @@
-const config = {
-  darkMode: 'class', // Cambia a 'media' si prefieres que dependa del sistema
+const config = { // Cambia a 'media' si prefieres que dependa del sistema
   theme: {
     extend: {
       colors: {

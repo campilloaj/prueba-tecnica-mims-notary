@@ -12,7 +12,7 @@ export type Response<T> = {
 
 const API_URL = "https://api.dictionaryapi.dev";
 
-export const searchService = (searchText: string, lang = "en"): Promise<Response<Array<Dictionary>>> => {
+export const searchService = async (searchText: string, lang = "en"): Promise<Response<Array<Dictionary>>> => {
   return fetch(API_URL + `/api/v2/entries/${lang}/${searchText}`)
     .then(async (response) => {
       return { data: response.ok ? await response.json() : null, status: response.status };
