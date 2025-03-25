@@ -38,3 +38,15 @@ body {
 .light::placeholder{
   color: #000000; /* Texto oscuro */
 }
+
+.light {
+  .item:hover {
+   background-color: rgb(246, 245, 245);  
+  }
+}
+
+.dark {
+  .item:hover {
+   background-color: rgb(40, 39, 39);  
+  }
+}

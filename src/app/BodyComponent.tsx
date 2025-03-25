@@ -33,9 +33,8 @@ export const BodyComponent = ({children}:{children:ReactNode}) => {
     font === 'monospace' ? robotoMono : merriweather
   
   return (
-      <body className={`${state} ${typeFont['className']} `} >
-        {children}
-      </body>
-    
+    <body className={`${state} ${typeFont['className']} `} >
+      {children}
+    </body>
   )
 } 

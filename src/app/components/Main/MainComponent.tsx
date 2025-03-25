@@ -22,7 +22,7 @@ export const MainComponent = () => {
                   <div className="w-full max-h-52 overflow-auto">
 
                      {listSearchedWords.map((item, keyValue) => (
-                        <div key={item.word + keyValue} className="flex items-center p-4 border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-black justify-between">
+                        <div key={item.word + keyValue} className="flex items-center p-4 border-b border-gray-200 item justify-between">
                            <div className="text-sm font-medium  flex gap-2">
                               <p className="font-bold">{item.word}</p>
                               <p>{item.date}</p>
