@@ -1,16 +1,17 @@
 "use client"
 import { useState } from 'react';
-import { themeContext } from '../../context/ThemeContext';
-import { fontContext } from '../../context/FontProvider';
+import { themeContext, dispatchthemeContext } from '../../context/ThemeContext';
+import { dispatchFontContext } from '../../context/FontProvider';
 
 import { DarkModeIcon } from '../Icons/DarkModeIcon';
 import { LightModeIcon } from '../Icons/LightModeIcon';
 import { CloseIcon } from '../Icons/CloseIcon';
 
 export const Navbar = () => {
-  
-   const { state, handleSetThemeState } = themeContext();
-   const { handleSetFontState } = fontContext();
+   const handleSetThemeState =  dispatchthemeContext();
+   const state  = themeContext();
+   //Font
+   const handleSetFontState  = dispatchFontContext();
    const [isOpen, setIsOpen] = useState(false);
 
    const toggleDropdown = () => {

@@ -1,29 +1,32 @@
 "use client"
 import { useState, createContext, useContext, ReactNode } from 'react';
 
-const ThemeContext = createContext({
- state:'light',
- handleSetThemeState: (value:string) => {}
-});
+const DispatchThemeContext = createContext((value: string) => { });
+
+const ThemeContext = createContext('dark');
 
 
-export const themeContext = () => useContext(ThemeContext); 
+export const themeContext = () => useContext(ThemeContext);
+
+export const dispatchthemeContext = () => useContext(DispatchThemeContext);
 
 type Props = {
-   children:ReactNode
+   children: ReactNode
 }
 
-export const ThemeProvider = ({ children }:Props) => {
+export const ThemeProvider = ({ children }: Props) => {
 
-   const [state, setState] = useState('light')
+   const [state, setState] = useState('dark')
 
-   const handleSetThemeState = (value:string) => {
+   const handleSetThemeState = (value: string) => {
       setState(value);
    }
 
    return (
-      <ThemeContext.Provider value={{state, handleSetThemeState}}>
-       {children}
+      <ThemeContext.Provider value={state}>
+         <DispatchThemeContext.Provider value={handleSetThemeState}>
+            {children}
+         </DispatchThemeContext.Provider>
       </ThemeContext.Provider>
 
    )

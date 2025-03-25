@@ -26,8 +26,8 @@ const merriweather = Merriweather({
 
 export const BodyComponent = ({children}:{children:ReactNode}) => {
   
-  const { state } = themeContext();
-  const { font } = fontContext();
+  const state  = themeContext();
+  const font  = fontContext();
 
   const typeFont = font === 'sans_serif' ? poppins : 
     font === 'monospace' ? robotoMono : merriweather
