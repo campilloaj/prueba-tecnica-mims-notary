@@ -15,7 +15,7 @@ type Props = {
 
 export const FontProvider = ({ children }: Props) => {
 
-   const [font, setFont] = useState('')
+   const [font, setFont] = useState('serif')
 
    const handleSetFontState = (value: string) => {
       setFont(value);

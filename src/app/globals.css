@@ -50,3 +50,9 @@ body {
    background-color: rgb(40, 39, 39);  
   }
 }
+
+
+/* En tu archivo .css */
+ul li::marker {
+  @apply text-purple-500;
+}

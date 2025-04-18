@@ -1,8 +1,8 @@
 
 "use client"
 import { ReactNode } from "react";
-import { themeContext } from './context/ThemeContext';
-import { fontContext } from './context/FontProvider';
+import { themeContext } from '../context/ThemeContext';
+import { fontContext } from '../context/FontProvider';
 
 import { Poppins, Roboto_Mono, Merriweather } from "next/font/google";
 
@@ -29,7 +29,7 @@ export const BodyComponent = ({children}:{children:ReactNode}) => {
   const state  = themeContext();
   const font  = fontContext();
 
-  const typeFont = font === 'sans_serif' ? poppins : 
+  const typeFont = font === 'sans serif' ? poppins : 
     font === 'monospace' ? robotoMono : merriweather
   
   return (

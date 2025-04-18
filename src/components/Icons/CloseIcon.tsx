@@ -9,7 +9,7 @@ export const CloseIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="w-6 h-6 text-gray-800 dark:text-white"
+    className="w-6 h-6 text-gray-800 dark:text-purple-500 "
   >
     <path d="M6 18L18 6M6 6l12 12"></path>
   </svg>

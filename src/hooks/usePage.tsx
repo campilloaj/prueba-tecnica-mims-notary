@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-import { searchService, Dictionary } from './services/dictionary.service';
+import { searchService, Dictionary } from '../services/dictionary.service';
 
 export type SearchedWord = {
    date: string,
@@ -35,14 +35,14 @@ export const usePage = () => {
          setError("");
       }
 
-      const response = await searchService(search, "en");
+      const response = await searchService(search);
 
       if (response.status === 200) {
          setListDictionary(response.data);
       }
 
       if (response.status === 404) {
-         setListDictionary([{ word: "No se encontro la palabra", phonetics: [] }]);
+         setListDictionary([{ word: "No se encontro la palabra", phonetic:'', sourceUrls:[], meanings:[], phonetics: [] }]);
          return;
       }
 

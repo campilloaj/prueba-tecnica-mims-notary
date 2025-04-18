@@ -16,7 +16,7 @@ type Props = {
 
 export const ThemeProvider = ({ children }: Props) => {
 
-   const [state, setState] = useState('dark')
+   const [state, setState] = useState('light')
 
    const handleSetThemeState = (value: string) => {
       setState(value);
