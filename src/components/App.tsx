@@ -6,6 +6,7 @@ import { fontContext } from '../context/FontProvider';
 
 import { Poppins, Roboto_Mono, Merriweather } from "next/font/google";
 
+//monospace
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   weight: '400',
@@ -24,10 +25,10 @@ const merriweather = Merriweather({
 });
 
 
-export const BodyComponent = ({children}:{children:ReactNode}) => {
+export const App = ({children}:{children:ReactNode}) => {
   
-  const state  = themeContext();
-  const font  = fontContext();
+  const state = themeContext();
+  const font = fontContext();
 
   const typeFont = font === 'sans serif' ? poppins : 
     font === 'monospace' ? robotoMono : merriweather

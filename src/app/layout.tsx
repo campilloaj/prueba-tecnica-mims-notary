@@ -3,7 +3,7 @@ import "./globals.css";
 
 import { ThemeProvider } from '../context/ThemeContext';
 import { FontProvider } from '../context/FontProvider';
-import { BodyComponent } from '../components/BodyComponent';
+import { App } from '../components/App';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <ThemeProvider>
         <FontProvider>
-          <BodyComponent>
+          <App>
             {children}
-          </BodyComponent>
+          </App>
         </FontProvider>
       </ThemeProvider>
     </html>

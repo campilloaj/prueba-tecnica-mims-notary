@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-import { SearchInput } from '../Search/SearchInput'
+import { SearchInput } from '../Search/SearchInput';
 import { ButtonPlay } from '../Button/ButtonPlay';
 
 //hook
