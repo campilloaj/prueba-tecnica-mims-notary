@@ -9,13 +9,15 @@ import { usePage } from '../../hooks/usePage';
 
 export const MainComponent = () => {
 
-   const { search, setSearch, listDictionary, listSearchedWords, isOpenListWord, error, onSubmit, playAudio, toggleListWords, audioRef } = usePage();
+   const { search, setSearch, loadingWord, listDictionary, listSearchedWords, isOpenListWord, error, onSubmit, playAudio, toggleListWords, audioRef } = usePage();
 
    return (
       <>
          <main className="max-w-screen-md flex flex-col gap-8 justify-center items-center mx-auto p-4">
 
-            <SearchInput textValue={search}
+            <SearchInput 
+               disabled={loadingWord}
+               textValue={search}
                search={onSubmit}
                onChange={(e) => setSearch(e.target.value)}
             />

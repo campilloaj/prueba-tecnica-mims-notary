@@ -12,6 +12,7 @@ export const usePage = () => {
    let audioRef = useRef<HTMLAudioElement>(null);
    const [search, setSearch] = useState("");
    const [error, setError] = useState('');
+   const [loadingWord, setLoadingWord] = useState(false);
    const [isOpenListWord, setIsOpenListWord] = useState(false);
    const [listDictionary, setListDictionary] = useState<Dictionary[]>([]);
    const [listSearchedWords, setListSearchedWords] = useState<SearchedWord[]>([]);
@@ -26,8 +27,11 @@ export const usePage = () => {
 
    const onSubmit = async () => {
 
+      setLoadingWord(true);
+
       if (search.trim() === '') {
          setError("Debe escribir una palabra");
+         setLoadingWord(false);
          return;
       }
 
@@ -43,6 +47,7 @@ export const usePage = () => {
 
       if (response.status === 404) {
          setListDictionary([{ word: "No se encontro la palabra", phonetic:'', sourceUrls:[], meanings:[], phonetics: [] }]);
+         setLoadingWord(false);
          return;
       }
 
@@ -58,6 +63,7 @@ export const usePage = () => {
 
       setListSearchedWords(cloneArray);
 
+      setLoadingWord(false);
    }
   
    const toggleListWords = () => {
@@ -82,6 +88,7 @@ export const usePage = () => {
    return {
       search,
       setSearch,
+      loadingWord,
       listDictionary,
       listSearchedWords,
       isOpenListWord,
